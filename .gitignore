@@ -1,0 +1,5 @@
+*.p
+/non-vehicles
+/vehicles
+*.zip
+*.mp4
