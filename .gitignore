@@ -1,8 +1,8 @@
 *.p
-/non-vehicles
+/nonVehicles
 /vehicles
 *.zip
 *.mp4
 /TestVideos
-#/testData
+/testData
 
