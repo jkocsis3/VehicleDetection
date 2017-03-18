@@ -26,8 +26,8 @@ You're reading it!
 
 In order to extract all of the HOG features for the images, i used the pipeline contained in the 'Train the model' section of the VehicleDetection IPython notebook.  This function relies on several other function to complete it's work:
 * get_hog_features(): Returns all the HOG features from a single image.
-* bin_spatial(): Returns the binned spatial features of a single image.  For this exercise I used a bin sixe of (32,32)
-* color_hist(): Returns a color histogram from a single image.  For this I used all 3 channels for the image, and then concatenated them into a single feature vector.  It is important to note I used YCrCb as the format for these images.
+* bin_spatial(): Returns the binned spatial features of a single image.  For this exercise I used a bin sixe of (16,16)
+
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
@@ -42,8 +42,8 @@ Determining the proper parameters for the functions, such as bin size, orientati
 * pix_per_cell = 8
 * cell_per_block = 2
 * hog_channel = "ALL" # Can be 0, 1, 2, or "ALL"
-* spatial_size = (32,32)
-* hist_bins=32
+* spatial_size = (16,16)
+* hist_bins=16
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
@@ -61,7 +61,7 @@ I also felt by saving the trained classifier it would be easier to integrate thi
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-For the sliding window search, I chose to calculate the HOG features of the image once, and then subsample a section of the image.  I used the bottom portion of the image, starting on the y axis at 400 since this is slightly above the road on the horizon.  I searched the image at a scale of 1.5 as this seemed to produce the most accurate results.  I also overlapped each window by 50%.  
+For the sliding window search, I chose to calculate the HOG features of the image once, and then subsample a section of the image.  I used the bottom portion of the image, starting on the y axis at 400 since this is slightly above the road on the horizon.  I searched the image at scales of 1, 1.25,1.5, 1.8 as this seemed to produce the most accurate results.  I also overlapped each window by 75%.  
 
 
 
